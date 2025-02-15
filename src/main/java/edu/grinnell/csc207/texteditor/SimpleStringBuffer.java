@@ -4,53 +4,53 @@ package edu.grinnell.csc207.texteditor;
  * A naive implementation of a text buffer using a <code>String</code>.
  */
 public class SimpleStringBuffer {
-    private String edit;
-    private int cursor;
-    private int size;
+    private static String edit;
+    private static int cursor;
+    private static int size;
     
     public SimpleStringBuffer() {
-        edit = "";
-        cursor = 0;
-        size = 0;
+        SimpleStringBuffer.edit = "";
+        SimpleStringBuffer.cursor = 0;
+        SimpleStringBuffer.size = 0;
     }
     
     public void insert(char ch) {
-        edit = edit.substring(0, cursor) + ch + edit.substring(cursor);
-        cursor++;
-        size++;
+        SimpleStringBuffer.edit = SimpleStringBuffer.edit.substring(0, SimpleStringBuffer.cursor) + ch + SimpleStringBuffer.edit.substring(SimpleStringBuffer.cursor);
+        SimpleStringBuffer.cursor += 1;
+        SimpleStringBuffer.size += 1;
     }
 
     public void delete() {
-        if (!(edit.length() == 0 || cursor == 0)) {
-            edit = edit.substring(0, cursor - 1) + edit.substring(cursor);
-            cursor--;
-            size--;
+        if (!(SimpleStringBuffer.edit.length() == 0 || SimpleStringBuffer.cursor == 0)) {
+            SimpleStringBuffer.edit = SimpleStringBuffer.edit.substring(0, SimpleStringBuffer.cursor) + SimpleStringBuffer.edit.substring(SimpleStringBuffer.cursor + 1);
+            SimpleStringBuffer.cursor -= 1;
+            SimpleStringBuffer.size -= 1;
         }
     }
 
     public int getCursorPosition() {
-        return cursor;
+        return SimpleStringBuffer.cursor;
     }
 
     public void moveLeft() {
-        if (!(cursor == 0)) {
-            cursor--;
+        if (!(SimpleStringBuffer.cursor == 0)) {
+            SimpleStringBuffer.cursor -= 1;
         }
     }
 
     public void moveRight() {
-        if (!(cursor == size)) {
-            cursor++;
+        if (!(SimpleStringBuffer.cursor == size)) {
+            SimpleStringBuffer.cursor += 1;
         }
     }
 
     public int getSize() {
-        return size;
+        return SimpleStringBuffer.size;
     }
 
     public char getChar(int i) {
-        if (i < size && i >= 0) {
-            return edit.charAt(i);
+        if (i < SimpleStringBuffer.size && i >= 0) {
+            return SimpleStringBuffer.edit.charAt(i);
         } else {
             throw new IndexOutOfBoundsException();
         }
@@ -58,6 +58,6 @@ public class SimpleStringBuffer {
 
     @Override
     public String toString() {
-        return edit;
+        return SimpleStringBuffer.edit;
     }
 }
