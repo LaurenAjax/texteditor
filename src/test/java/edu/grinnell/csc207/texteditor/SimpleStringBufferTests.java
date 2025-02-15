@@ -11,9 +11,9 @@ public class SimpleStringBufferTests {
     
     @Test
     public void testEmpty() {
-        assertEquals(buffer.toString(), "");
-        assertEquals(buffer.getCursorPosition(), 0);
-        assertEquals(buffer.getSize(), 0);
+        assertEquals("", buffer.toString());
+        assertEquals(0, buffer.getCursorPosition());
+        assertEquals(0, buffer.getSize());
     }
     
     @Test
@@ -28,21 +28,21 @@ public class SimpleStringBufferTests {
         buffer.insert(' ');
         buffer.insert('I');
         buffer.insert('s');
-        assertEquals(buffer.toString(), "My Name Is");
+        assertEquals("My Name Is", buffer.toString());
     }
     
     @Test
     public void testMoveCursor() {
-        assertEquals(buffer.getCursorPosition(), 10);
+        assertEquals(10, buffer.getCursorPosition());
         buffer.moveLeft();
         buffer.moveLeft();
         buffer.moveLeft();
         buffer.moveLeft();
         buffer.moveLeft();
-        assertEquals(buffer.getCursorPosition(), 5);
+        assertEquals(5, buffer.getCursorPosition());
         buffer.moveRight();
         buffer.moveRight();
-        assertEquals(buffer.getCursorPosition(), 7);
+        assertEquals(7, buffer.getCursorPosition());
     }
     
     @Test
@@ -51,22 +51,22 @@ public class SimpleStringBufferTests {
         buffer.delete();
         buffer.delete();
         buffer.delete();
-        assertEquals(buffer.toString(), "My  Is");
+        assertEquals("My  Is", buffer.toString());
         buffer.insert('N');
         buffer.insert('u');
         buffer.insert('m');
         buffer.insert('b');
         buffer.insert('e');
         buffer.insert('r');
-        assertEquals(buffer.toString(), "My Number Is");
+        assertEquals("My Number Is", buffer.toString());
     }
     
     @Test
     public void testGetChar() {
-        assertEquals(buffer.getChar(0), 'M');
-        assertEquals(buffer.getChar(6), 'b');
-        assertEquals(buffer.getChar(9), ' ');
-        assertEquals(buffer.getChar(11), 's');
+        assertEquals('M', buffer.getChar(0));
+        assertEquals('b', buffer.getChar(6));
+        assertEquals(' ', buffer.getChar(9));
+        assertEquals('s', buffer.getChar(11));
     }
 
     @Property
