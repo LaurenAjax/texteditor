@@ -69,24 +69,24 @@ public class GapBuffer {
     }
 
     public char getChar(int i) {
-        if (i < size && i >= 0) {
-            int index = 0;
-            for (int iter = 0; iter < edit.length; iter++) {
-                if (edit[index] == '\0') {
-                    index--;
-                } else if (index == i) {
-                    return edit[iter];
-                }
-                index++;
-            }
-        } else {
+        if (i >= size && i < 0) {
             throw new IndexOutOfBoundsException();
         }
+        int index = 0;
+        for (int iter = 0; iter < edit.length; iter++) {
+            if (edit[index] == '\0') {
+                index--;
+            } else if (index == i) {
+                return edit[iter];
+            }
+            index++;
+        }
+        return '0';
     }
 
     public String toString() {
         String str = "";
-        for (int i = 0; i < edit.length, i++) {
+        for (int i = 0; i < edit.length; i++) {
             if (!(edit[i] == '\0')) {
                 str = str + edit[i];
             }
