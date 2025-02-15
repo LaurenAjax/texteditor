@@ -4,36 +4,60 @@ package edu.grinnell.csc207.texteditor;
  * A naive implementation of a text buffer using a <code>String</code>.
  */
 public class SimpleStringBuffer {
+    private String edit;
+    private int cursor;
+    private int size;
+    
+    public SimpleStringBuffer() {
+        edit = "";
+        cursor = 0;
+        size = 0;
+    }
+    
     public void insert(char ch) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        edit = edit.substring(0, cursor) + ch + edit.substring(cursor);
+        cursor++;
+        size++;
     }
 
     public void delete() {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        if (!(edit.length() == 0 || cursor == 0)) {
+            edit = edit.substring(0, cursor - 1) + edit.substring(cursor);
+            cursor--;
+            size--;
+        }
     }
 
     public int getCursorPosition() {
-        throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
+        return cursor;
     }
 
     public void moveLeft() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
+        if (!(cursor == 0)) {
+            cursor--;
+        }
     }
 
     public void moveRight() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
+        if (!(cursor == size)) {
+            cursor++;
+        }
     }
 
     public int getSize() {
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        return size;
     }
 
     public char getChar(int i) {
-        throw new UnsupportedOperationException("Unimplemented method 'getChar'");
+        if (i < size && i >= 0) {
+            return edit.charAt(i);
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Unimplemented method 'toString'");
+        return edit;
     }
 }
