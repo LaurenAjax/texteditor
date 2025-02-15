@@ -4,80 +4,80 @@ package edu.grinnell.csc207.texteditor;
  * A gap buffer-based implementation of a text buffer.
  */
 public class GapBuffer {
-    private char[] edit;
-    private int cursor;
-    private int size;
+    private static char[] edit;
+    private static int cursor;
+    private static int size;
     
     public GapBuffer () {
-        edit = new char[10];
-        cursor = 0;
-        size = 0;
+        GapBuffer.edit = new char[10];
+        GapBuffer.cursor = 0;
+        GapBuffer.size = 0;
     }
     
     public void insert(char ch) {
-        if (size == edit.length) {
-            char[] arr = new char[2 * edit.length];
-            for (int i = 0; i < cursor; i++) {
-                arr[i] = edit[i];
+        if (GapBuffer.size == GapBuffer.edit.length) {
+            char[] arr = new char[2 * GapBuffer.edit.length];
+            for (int i = 0; i < GapBuffer.cursor; i++) {
+                arr[i] = GapBuffer.edit[i];
             }
-            for (int j = cursor; j < arr.length; j++) {
-                arr[j] = edit[j - edit.length];
+            for (int j = GapBuffer.cursor; j < arr.length; j++) {
+                arr[j] = GapBuffer.edit[j - GapBuffer.edit.length];
             }
-            edit = arr;
+            GapBuffer.edit = arr;
         }
-        edit[cursor] = ch;
-        cursor++;
-        size++;
-        if (!(edit[cursor] == '\0') && !(size == edit.length)) {
+        GapBuffer.edit[GapBuffer.cursor] = ch;
+        GapBuffer.cursor++;
+        GapBuffer.size++;
+        if (!(GapBuffer.edit[GapBuffer.cursor] == '\0') && !(GapBuffer.size == GapBuffer.edit.length)) {
             int k;
-            for (k = cursor; k < edit.length - 1; k++) {
-                edit[k + 1] = edit[k];
+            for (k = GapBuffer.cursor; k < GapBuffer.edit.length - 1; k++) {
+                GapBuffer.edit[k + 1] = GapBuffer.edit[k];
             }
-            edit[k] = '\0';
+            GapBuffer.edit[k] = '\0';
         }
     }
 
     public void delete() {
-        if (!(cursor == 0)) {
-            cursor--;
-            edit[cursor] = '\0';
+        if (!(GapBuffer.cursor == 0)) {
+            GapBuffer.cursor--;
+            GapBuffer.edit[GapBuffer.cursor] = '\0';
         }
     }
 
     public int getCursorPosition() {
-        return cursor;
+        return GapBuffer.cursor;
     }
 
     public void moveLeft() {
-        if (!(cursor == 0)) {
-            cursor--;
-            edit[cursor + 1] = edit[cursor];
-            edit[cursor] = '\0';
+        if (!(GapBuffer.cursor == 0)) {
+            GapBuffer.cursor--;
+            GapBuffer.edit[GapBuffer.cursor + 1] = GapBuffer.edit[GapBuffer.cursor];
+            GapBuffer.edit[GapBuffer.cursor] = '\0';
         }
     }
 
     public void moveRight() {
-        if(!(cursor == edit.length)) {
-            cursor++;
-            edit[cursor - 1] = edit[cursor];
-            edit[cursor] = '\0';
+        if(!(GapBuffer.cursor == GapBuffer.edit.length)) {
+            GapBuffer.cursor++;
+            GapBuffer.edit[GapBuffer.cursor - 1] = GapBuffer.edit[GapBuffer.cursor];
+            GapBuffer.edit[GapBuffer.cursor] = '\0';
         }
     }
 
     public int getSize() {
-        return size;
+        return GapBuffer.size;
     }
 
     public char getChar(int i) {
-        if (i >= size && i < 0) {
+        if (i >= GapBuffer.size && i < 0) {
             throw new IndexOutOfBoundsException();
         }
         int index = 0;
-        for (int iter = 0; iter < edit.length; iter++) {
-            if (edit[index] == '\0') {
+        for (int iter = 0; iter < GapBuffer.edit.length; iter++) {
+            if (GapBuffer.edit[index] == '\0') {
                 index--;
             } else if (index == i) {
-                return edit[iter];
+                return GapBuffer.edit[iter];
             }
             index++;
         }
@@ -86,9 +86,9 @@ public class GapBuffer {
 
     public String toString() {
         String str = "";
-        for (int i = 0; i < edit.length; i++) {
-            if (!(edit[i] == '\0')) {
-                str = str + edit[i];
+        for (int i = 0; i < GapBuffer.edit.length; i++) {
+            if (!(GapBuffer.edit[i] == '\0')) {
+                str = str + GapBuffer.edit[i];
             }
         }
         return str;
