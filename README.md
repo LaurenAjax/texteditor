@@ -78,6 +78,12 @@ of the model would be f(n) = O(n).
 
 ## Changelog
 
+commit ac46f81a7dcaab5024105a2bff618c5c969a8c62 (HEAD -> main)
+Author: ajaxlaur <ajaxlaur@132.161.196.207>
+Date:   Tue Feb 18 00:00:35 2025 -0600
+
+    All the references and the commit log added, alongside the analysis.
+
 commit ba2c1516d2f6ff7fbb9d360b5d58e1b10ca93401 (HEAD -> main)                                                                                  
 Author: ajaxlaur <ajaxlaur@132.161.196.207>
 Date:   Mon Feb 17 01:59:12 2025 -0600
