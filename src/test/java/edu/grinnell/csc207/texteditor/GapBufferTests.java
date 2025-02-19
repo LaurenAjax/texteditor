@@ -9,11 +9,14 @@ import net.jqwik.api.constraints.*;
 import java.util.Random;
 
 public class GapBufferTests {
-    GapBuffer buffer = new GapBuffer();     /* the buffer used throughout the tests */
+
+    GapBuffer buffer = new GapBuffer();
+
+    /* the buffer used throughout the tests */
 
     /**
      * Asserts that the initial buffer is indeed empty
-     * 
+     *
      */
     @Test
     public void testEmpty() {
@@ -24,7 +27,7 @@ public class GapBufferTests {
 
     /**
      * Writes in the buffer for easy access to something to edit
-     * 
+     *
      */
     public void addTypeWord() {
         buffer.insert('M');
@@ -41,7 +44,7 @@ public class GapBufferTests {
 
     /**
      * Moves the cursor left the specified number of times
-     * 
+     *
      * @param n the number of times the cursor is moved left
      */
     public void multiMoveLeft(int n) {
@@ -52,7 +55,7 @@ public class GapBufferTests {
 
     /**
      * Moves the cursor right the specified number of times
-     * 
+     *
      * @param n the number of times the cursor is moved right
      */
     public void multiMoveRight(int n) {
@@ -63,7 +66,7 @@ public class GapBufferTests {
 
     /**
      * Deletes the specified number of characters
-     * 
+     *
      * @param n the number of characters deleted
      */
     public void multiDelete(int n) {
@@ -73,9 +76,10 @@ public class GapBufferTests {
     }
 
     /**
-     * Tests that a string of the initial length of the array is successfully 
-     * written by the buffer and furthermore, that it is successfully added on to
-     * 
+     * Tests that a string of the initial length of the array is successfully
+     * written by the buffer and furthermore, that it is successfully added on
+     * to
+     *
      */
     @Test
     public void testTypeWord() {
@@ -88,11 +92,11 @@ public class GapBufferTests {
         assertEquals(11, buffer.getSize());
         assertEquals(11, buffer.getCursorPosition());
     }
-    
+
     /**
      * Tests that moveRight and moveLeft move the cursor accurately and without
      * exceeding their bounds
-     * 
+     *
      */
     @Test
     public void testMoveCursor() {
@@ -111,7 +115,7 @@ public class GapBufferTests {
     /**
      * Deletes and adds characters to various locations in the array, making
      * sure that the edits are accurate
-     * 
+     *
      */
     @Test
     public void testEditWord() {
@@ -139,7 +143,7 @@ public class GapBufferTests {
 
     /**
      * Tests that getChar returns the correct character
-     * 
+     *
      */
     @Test
     public void testGetChar() {
@@ -151,9 +155,9 @@ public class GapBufferTests {
     }
 
     /**
-     * Generates a buffer consisting of one letter of a random size, extracts a 
+     * Generates a buffer consisting of one letter of a random size, extracts a
      * character of a random index within that buffer to verify if it's accurate
-     * 
+     *
      * @param sz the random size of the buffer
      * @return whether or not the character at the random index was accurate
      */
