@@ -78,6 +78,28 @@ of the model would be f(n) = O(n).
 
 ## Changelog
 
+commit f03b66b8be5dbb72ce99882831618f28bee45263 (HEAD -> main)
+Author: ajaxlaur <ajaxlaur@132.161.196.207>
+Date:   Wed Feb 19 12:39:05 2025 -0600
+
+    Made tests the same as GapBufferTests
+
+commit fbb049ed2e051dce8ef93b5685f6a9eba26ed31f
+Author: ajaxlaur <ajaxlaur@132.161.196.207>
+Date:   Wed Feb 19 12:38:36 2025 -0600
+
+    Added @param tage for file.
+                                                                                                                                                
+commit c4dc5c79e25fddccdcdf300055b4133bab2bb6d5                                                                                                 
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Wed Feb 19 12:38:16 2025 -0600                                                                                                          
+                                                                                                                                                
+    Edited to delete like GapBuffer,                                                                                                            
+                                                                                                                                                
+commit 093c66aa5beecc6d1f7b2ca36296b804b035311e (origin/main)                                                                                   
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 21:40:20 2025 -0600                                                                                                          
+                                       
 commit a576369cb826246fab4d3624e9fb8252abf69bc6 (HEAD -> main, origin/main)                                                                     
 Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
 Date:   Tue Feb 18 21:36:18 2025 -0600                                                                                                          
