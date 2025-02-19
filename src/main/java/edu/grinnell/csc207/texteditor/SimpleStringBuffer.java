@@ -39,11 +39,9 @@ public class SimpleStringBuffer {
      *
      */
     public void delete() {
-        if (!(edit.length() == 0 || cursor == size)) {
+        if (!(edit.length() == 0 || cursor == 0)) {
+            cursor -= 1;
             edit = edit.substring(0, cursor) + edit.substring(cursor + 1);
-            if (!(cursor == 0)) {
-                cursor -= 1;
-            }
             size -= 1;
         }
     }
