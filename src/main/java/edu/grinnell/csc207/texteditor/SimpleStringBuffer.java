@@ -4,23 +4,28 @@ package edu.grinnell.csc207.texteditor;
  * A naive implementation of a text buffer using a <code>String</code>.
  */
 public class SimpleStringBuffer {
-    private String edit;     /* the string that is edited in the text editor */
-    private int cursor;     /* the location where the text can be edited */
-    private int size;     /* the length of the text */
-    
+
+    private String edit;
+    /* the string that is edited in the text editor */
+    private int cursor;
+    /* the location where the text can be edited */
+    private int size;
+
+    /* the length of the text */
+
     /**
      * Initializes the string buffer
-     * 
+     *
      */
     public SimpleStringBuffer() {
         edit = "";
         cursor = 0;
         size = 0;
     }
-    
+
     /**
      * Inserts the given character into the string at the location of the cursor
-     * 
+     *
      * @param ch the character that is inserted in the string
      */
     public void insert(char ch) {
@@ -31,7 +36,7 @@ public class SimpleStringBuffer {
 
     /**
      * Removes the character at the index of the cursor from the string
-     * 
+     *
      */
     public void delete() {
         if (!(edit.length() == 0 || cursor == size)) {
@@ -45,7 +50,7 @@ public class SimpleStringBuffer {
 
     /**
      * Returns the location of the cursor
-     * 
+     *
      * @return the integer that describes the index of the cursor
      */
     public int getCursorPosition() {
@@ -54,7 +59,7 @@ public class SimpleStringBuffer {
 
     /**
      * Moves the cursor left one position if able
-     * 
+     *
      */
     public void moveLeft() {
         if (!(cursor == 0)) {
@@ -64,7 +69,7 @@ public class SimpleStringBuffer {
 
     /**
      * Moves the cursor right one position if able
-     * 
+     *
      */
     public void moveRight() {
         if (!(cursor == size)) {
@@ -74,7 +79,7 @@ public class SimpleStringBuffer {
 
     /**
      * Returns the length of the string
-     * 
+     *
      * @return the integer that describes the size of the string
      */
     public int getSize() {
@@ -82,9 +87,9 @@ public class SimpleStringBuffer {
     }
 
     /**
-     * Returns the character at the given index in the string or else throws 
-     * an error
-     * 
+     * Returns the character at the given index in the string or else throws an
+     * error
+     *
      * @param i the index of the requested character
      * @return the character at index 'i'
      */
@@ -98,7 +103,7 @@ public class SimpleStringBuffer {
 
     /**
      * Returns a string of the edited text
-     * 
+     *
      * @return the string of the buffer
      */
     @Override
