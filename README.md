@@ -12,8 +12,8 @@
 + Helped me figure out how to import the necessary packages
 and iron out bugs in my program.
 + Help from Professor - Peter-Michael Osera
-+ Helped me fix my pom.xml file and how to use Lanterna in my
-program.
++ Helped me fix my pom.xml file, how to use Lanterna in my
+program, and impliment screen.clear().
 + Project Page: Text Editor
 + https://osera.cs.grinnell.edu/ttap/data-structures-labs/text-editor.html
 + The page I got my instructions for the project from.
@@ -78,6 +78,40 @@ of the model would be f(n) = O(n).
 
 ## Changelog
 
+commit a576369cb826246fab4d3624e9fb8252abf69bc6 (HEAD -> main, origin/main)                                                                     
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 21:36:18 2025 -0600                                                                                                          
+                                                                                                                                                
+    Added screen.clear to facilitate the accurate performance of delete.                                                                        
+                                                                                                                                                
+commit 9245eb876f8c0e9426c5cdd708ff84fca69da5d8                                                                                                 
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 21:35:40 2025 -0600                                                                                                          
+                                                                                                                                                
+    Reformatted for optimal style.                                                                                                              
+                                                                                                                                                
+commit d4a4dd6dfbc0480e05aa66e14d24a705a8223f43                                                                                                 
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 21:35:32 2025 -0600                                                                                                          
+                                                                                                                                                
+    Reformatted for optimal style.                                                                                                              
+                                                                                                                                                
+commit 4fb7d87cfe495c790afe638ec3618a7f1348a88c                                                                                                 
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 21:35:27 2025 -0600                                                                                                          
+                                                                                                                                                
+    Reformatted for optimal style.                                                                                                              
+                                                                                                                                                
+commit 6fc451161d8345d29daa365736fa416665b5c5f4                                                                                                 
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 21:35:20 2025 -0600                                                                                                          
+                                                                                                                                                
+    Reformatted for optimal style.                                                                                                              
+                                                                                                                                                
+commit 14452728f2b3b38fda963088cfb9bbad67fd4714                                                                                                 
+Author: ajaxlaur <ajaxlaur@132.161.196.207>                                                                                                     
+Date:   Tue Feb 18 00:01:52 2025 -0600                                                                                                          
+                           
 commit ac46f81a7dcaab5024105a2bff618c5c969a8c62 (HEAD -> main)
 Author: ajaxlaur <ajaxlaur@132.161.196.207>
 Date:   Tue Feb 18 00:00:35 2025 -0600
