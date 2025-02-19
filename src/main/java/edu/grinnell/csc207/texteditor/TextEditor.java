@@ -18,29 +18,30 @@ public class TextEditor {
 
     /**
      * Draws the updated word on the back buffer then moves it to the front
-     * 
+     *
      * @param buf the GapBuffer that has been edited
      * @param screen the Screen the test is edited in
-     * @throws IOException throws the error produced by an invalid screen refresh
+     * @throws IOException throws the error produced by an invalid screen
+     * refresh
      */
     public static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
-        String str = buf.toString();
+        screen.clear();
         for (int i = 0; i < buf.getSize(); i++) {
-            screen.setCharacter(i, 0, TextCharacter.fromCharacter(str.charAt(i))[0]);
+            screen.setCharacter(i, 0, TextCharacter.fromCharacter(buf.getChar(i))[0]);
         }
         TerminalPosition pos = new TerminalPosition(buf.getCursorPosition(), 0);
         screen.setCursorPosition(pos);
         screen.refresh();
     }
-    
+
     /**
      * Reads the key input and determines the appropriate action accordingly
-     * 
+     *
      * @param buf the GapBuffer that is edited by the key input
      * @param screen the screen that needs to be stopped if program is exited
      * @throws IOException throws the error produced by an invalid key stroke
      */
-    public static void sort(GapBuffer buf, Screen screen) throws IOException {
+    public static void sort(GapBuffer buf, Screen screen, Path file) throws IOException {
         KeyStroke stroke = screen.readInput();
         KeyType type = stroke.getKeyType();
         if (type == KeyType.Character) {
@@ -52,14 +53,15 @@ public class TextEditor {
         } else if (type == KeyType.Backspace) {
             buf.delete();
         } else if (type == KeyType.Escape) {
+            Files.writeString(file, buf.toString());
             screen.stopScreen();
             System.exit(0);
         }
     }
-    
+
     /**
      * Preps the necessary tools to write text and runs the text editor
-     * 
+     *
      * @param file the file the program reads from and writes to
      * @throws IOException throws the errors produced by several methods
      */
@@ -76,16 +78,16 @@ public class TextEditor {
         boolean isRunning = true;
         while (isRunning) {
             drawBuffer(buf, screen);
-            Files.writeString(file, buf.toString());
-            sort(buf, screen);
+            sort(buf, screen, file);
         }
     }
-    
+
     /**
      * The main entry point for the TextEditor application.
-     * 
+     *
      * @param args command-line arguments.
-     * @throws IOException throws the error produced by invalid executions of run
+     * @throws IOException throws the error produced by invalid executions of
+     * run
      */
     public static void main(String[] args) throws IOException {
         if (args.length != 1) {
