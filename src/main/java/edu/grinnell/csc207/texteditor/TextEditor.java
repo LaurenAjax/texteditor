@@ -39,6 +39,7 @@ public class TextEditor {
      *
      * @param buf the GapBuffer that is edited by the key input
      * @param screen the screen that needs to be stopped if program is exited
+     * @param file the file the program writes to when closed
      * @throws IOException throws the error produced by an invalid key stroke
      */
     public static void sort(GapBuffer buf, Screen screen, Path file) throws IOException {
