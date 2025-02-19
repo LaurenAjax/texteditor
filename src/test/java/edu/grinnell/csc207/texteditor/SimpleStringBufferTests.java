@@ -113,20 +113,17 @@ public class SimpleStringBufferTests {
     public void testEditWord() {
         addTypeWord();
         multiDelete(3);
-        assertEquals("My Name Is", buffer.toString());
-        buffer.moveLeft();
-        multiDelete(3);
         assertEquals("My Name", buffer.toString());
         multiMoveLeft(4);
+        assertEquals("My Name", buffer.toString());
         multiDelete(3);
         assertEquals("Name", buffer.toString());
-        multiMoveRight(3);
+        multiMoveRight(4);
         multiDelete(5);
         assertEquals("", buffer.toString());
         addTypeWord();
-        multiMoveLeft(4);
+        multiMoveLeft(3);
         multiDelete(4);
-        buffer.moveRight();
         buffer.insert('N');
         buffer.insert('u');
         buffer.insert('m');
