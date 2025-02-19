@@ -9,11 +9,14 @@ import net.jqwik.api.constraints.*;
 import java.util.Random;
 
 public class SimpleStringBufferTests {
-    SimpleStringBuffer buffer = new SimpleStringBuffer();     /* the buffer used throughout the tests */
-    
+
+    SimpleStringBuffer buffer = new SimpleStringBuffer();
+
+    /* the buffer used throughout the tests */
+
     /**
      * Asserts that the initial buffer is indeed empty
-     * 
+     *
      */
     @Test
     public void testEmpty() {
@@ -21,10 +24,10 @@ public class SimpleStringBufferTests {
         assertEquals(0, buffer.getCursorPosition());
         assertEquals(0, buffer.getSize());
     }
-    
+
     /**
      * Writes in the buffer for easy access to something to edit
-     * 
+     *
      */
     public void addTypeWord() {
         buffer.insert('M');
@@ -38,10 +41,10 @@ public class SimpleStringBufferTests {
         buffer.insert('I');
         buffer.insert('s');
     }
-    
+
     /**
      * Moves the cursor left the specified number of times
-     * 
+     *
      * @param n the number of times the cursor is moved left
      */
     public void multiMoveLeft(int n) {
@@ -49,10 +52,10 @@ public class SimpleStringBufferTests {
             buffer.moveLeft();
         }
     }
-    
+
     /**
      * Moves the cursor right the specified number of times
-     * 
+     *
      * @param n the number of times the cursor is moved right
      */
     public void multiMoveRight(int n) {
@@ -60,10 +63,10 @@ public class SimpleStringBufferTests {
             buffer.moveRight();
         }
     }
-    
+
     /**
      * Deletes the specified number of characters
-     * 
+     *
      * @param n the number of characters deleted
      */
     public void multiDelete(int n) {
@@ -71,21 +74,21 @@ public class SimpleStringBufferTests {
             buffer.delete();
         }
     }
-    
+
     /**
      * Tests that a string is successfully written by the buffer
-     * 
+     *
      */
     @Test
     public void testTypeWord() {
         addTypeWord();
         assertEquals("My Name Is", buffer.toString());
     }
-    
+
     /**
      * Tests that moveRight and moveLeft move the cursor accurately and without
      * exceeding their bounds
-     * 
+     *
      */
     @Test
     public void testMoveCursor() {
@@ -100,11 +103,11 @@ public class SimpleStringBufferTests {
         multiMoveLeft(3);
         assertEquals(7, buffer.getCursorPosition());
     }
-    
+
     /**
      * Deletes and adds characters to various locations in the string, making
      * sure that the edits are accurate
-     * 
+     *
      */
     @Test
     public void testEditWord() {
@@ -132,10 +135,10 @@ public class SimpleStringBufferTests {
         buffer.insert('r');
         assertEquals("My Number Is", buffer.toString());
     }
-    
+
     /**
      * Tests that getChar returns the correct character
-     * 
+     *
      */
     @Test
     public void testGetChar() {
@@ -147,9 +150,9 @@ public class SimpleStringBufferTests {
     }
 
     /**
-     * Generates a buffer consisting of one letter of a random size, extracts a 
+     * Generates a buffer consisting of one letter of a random size, extracts a
      * character of a random index within that buffer to verify if it's accurate
-     * 
+     *
      * @param sz the random size of the buffer
      * @return whether or not the character at the random index was accurate
      */
